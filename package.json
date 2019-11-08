@@ -43,9 +43,6 @@
         }
       ],
       "plugins": [
-        {
-          "process.browser": "true"
-        },
         [
           "@electron-forge/plugin-webpack",
           {
