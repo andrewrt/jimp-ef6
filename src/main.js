@@ -1,6 +1,5 @@
 const { app, BrowserWindow } = require('electron');
 
-import Jimp from 'jimp';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -11,29 +10,15 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-const testJimp = () => {
-  const grayArr = [];
-  for (let i = 0; i < 100*100; i++){
-      grayArr.push(0x77);
-  }
-  const grayBuf = Buffer.from(grayArr);
-  const width = 100;
-  const height = 100;
-  const filename = 'preview.png';
-  new Jimp({data: grayBuf, width, height}, (err, image) => {
-    image.write(fileName);
-  });
-}
-
 const createWindow = () => {
 
-  testJimp();
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
+        webSecurity: false
     }
   });
 

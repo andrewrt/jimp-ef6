@@ -34,6 +34,7 @@ module.exports = [
   {
     test: /\.js$/,
     exclude: /node_modules/,
+    //exclude: /node_modules\/(?!(jimp)\/).*/,
     use: [
       { loader: "babel-loader"}
     ]
