@@ -4,9 +4,17 @@ Basic Demo of Electron (w/ electron-forge v6) &amp; Jimp
 This Electron + React App (w/ Webpack & Forge) shows how to create and show a grayscale basic png using [Jimp](https://github.com/oliver-moran/jimp)
 
 ### Instructions to run:
+
+#### Developer Mode
 1. Pull in this repo
 2. `npm i`
 3. `npm start`
+
+#### Production Mode
+1. Pull in this repo
+2. `npm i`
+3. `npm run package`
+4. go to the `./out` folder to find the executable file that was just packaged and double click / invoke
 
 
 You should see something like:
