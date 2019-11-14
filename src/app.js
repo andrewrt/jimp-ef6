@@ -59,21 +59,28 @@ export default class App extends React.Component{
         const filename = path.resolve(ImageDirectory, "preview.png");
         console.log('filename: ', filename);
 
-        const grayArr = [];
-        for (let i = 0; i < 100*100; i++){
-            grayArr.push(0x77);
+        const pixArr = [];
+        const red = 0xff;
+        const green = 0x77;
+        const blue = 0x00;
+        const alpha = 0xff;
+        for (let i = 0; i < 100*100*4; i+=4){
+            pixArr.push(red);
+            pixArr.push(green);
+            pixArr.push(blue);
+            pixArr.push(alpha);
         }
-        const grayUint8Arr = Uint8Array.from(grayArr);
-        if (grayUint8Arr instanceof Uint8Array){
+        const pixUint8Arr = Uint8Array.from(pixArr);
+        if (pixUint8Arr instanceof Uint8Array){
             console.log('converted array to UInt8Array');
         }
-        const grayBuf = Buffer.from(grayUint8Arr);
+        const imgBuf = Buffer.from(pixUint8Arr);
         const width = 100;
         const height = 100;
 
         
         let jimg = new Jimp(width, height);
-        jimg.bitmap.data = grayBuf;
+        jimg.bitmap.data = imgBuf;
         jimg.write(filename, (writeErr) => {
             if (writeErr){
                 console.log('Jimp write err', writeErr);
