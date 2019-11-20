@@ -68,7 +68,7 @@
     "@babel/runtime": "^7.7.2",
     "core-js": "^3.4.1",
     "electron-squirrel-startup": "^1.0.0",
-    "jimp": "^0.6.4",
+    "jimp": "^0.8.6-canary.815.502.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "styled-components": "^4.4.1"
