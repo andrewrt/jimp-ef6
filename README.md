@@ -25,8 +25,8 @@ You should see something like:
 ### DIY
 
 To create a similar project from scratch:
-1. Install electron-forge v6 npm i -g @electron-forge/cli
-2. create electron-forge project w/ webpack electron-forge init ef6-sharp --template=webpack
-3. add react: npm i --save react react-dom
-4. add babel: npm i --save-dev babel-loader @babel/core @babel/preset-env
+1. Install electron-forge v6 `npm i -g @electron-forge/cli`
+2. create electron-forge project w/ webpack `electron-forge init ef6-sharp --template=webpack`
+3. add react: `npm i --save react react-dom`
+4. add babel: `npm i --save-dev babel-loader @babel/core @babel/preset-env`
 5. add .babelrc and update webpack.rules.js & app.js as shown in above repo
