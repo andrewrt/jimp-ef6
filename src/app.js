@@ -60,8 +60,8 @@ export default class App extends React.Component{
         console.log('filename: ', filename);
 
         const pixArr = [];
-        const red = 0xff;
-        const green = 0x77;
+        const red = 0x33;
+        const green = 0xee;
         const blue = 0x00;
         const alpha = 0xff;
         for (let i = 0; i < 100*100*4; i+=4){
@@ -79,29 +79,33 @@ export default class App extends React.Component{
         const height = 100;
 
         
-        let jimg = new Jimp(width, height);
-        jimg.bitmap.data = imgBuf;
-        jimg.write(filename, (writeErr) => {
-            if (writeErr){
-                console.log('Jimp write err', writeErr);
-            }
-            const imgHash = Date.now().toString();
-            const imgUrl = `file:///${filename.replace(/\\/g, "/")}`;
-            this.setState({imgUrl});
-        });
-
-        //The below SHOULD work but: 
-        // - https://github.com/oliver-moran/jimp/issues/653
-        // - https://github.com/oliver-moran/jimp/issues/776
-        // new Jimp({data: grayBuf, width, height}, (err, image) => {
-        //     if (err){
-        //         console.log('jimp error: ', err);
-        //         this.setState({imgUrl: undefined});
-        //     } else {
-        //         image.write(fileName);
-        //         this.setState({imgUrl: filename});
+        // Unsafe data set method:
+        // let jimg = new Jimp(width, height);
+        // jimg.bitmap.data = imgBuf;
+        // jimg.write(filename, (writeErr) => {
+        //     if (writeErr){
+        //         console.log('Jimp write err', writeErr);
         //     }
+        //     const imgHash = Date.now().toString();
+        //     const imgUrl = `file:///${filename.replace(/\\/g, "/")}`;
+        //     this.setState({imgUrl});
         // });
+
+        new Jimp({data: imgBuf, width, height}, (err, image) => {
+            if (err){
+                console.log('jimp error: ', err);
+                this.setState({imgUrl: undefined});
+            } else {
+                image.write(filename, (writeErr) => {
+                    if (writeErr){
+                        console.log('Jimp write err', writeErr);
+                    }
+                    const imgHash = Date.now().toString();
+                    const imgUrl = `file://${filename.replace(/\\/g, "/")}`;
+                    this.setState({imgUrl});
+                });
+            }
+        });
     }
 
     render(){
