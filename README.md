@@ -18,7 +18,7 @@ This Electron + React App (w/ Webpack & Forge) shows how to create and show a gr
 
 
 You should see something like:
-<img width="1043" alt="Screen Shot 2019-11-12 at 12 37 26 PM" src="https://user-images.githubusercontent.com/6960865/68696550-2b939600-054b-11ea-9655-eac7eff65331.png">
+<img width="1043" alt="Screen Shot 2019-11-12 at 12 37 26 PM" src="https://user-images.githubusercontent.com/6960865/70746666-38dfa400-1cf4-11ea-9e60-9bb0b552dc0d.png">
 
 
 
